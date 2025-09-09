@@ -13,9 +13,9 @@ Attach the Raspberry Pi to the GPIO port
 ![Alt text](inky133_back.jpg?raw=true "Photo of backside of the Inky Impressions 13.3 with Raspberry Pi Zoro 2W attached.")
 
 ## Usage
-python3 gradientmap_inky.py --lat <your_latitude> --lon <your_longitude> --direction <direction to look at in degrees>
+    python3 gradientmap_inky.py --lat <your_latitude> --lon <your_longitude> --direction <direction to look at in degrees>
 
 Example:
 To have a map of the southern night sky from Gouda, the Netherlands, you can run this:  
-python3 gradientmap_inky.py --lat -52.0141616 --lon -4.7158104 --direction 180
+    python3 gradientmap_inky.py --lat -52.0141616 --lon -4.7158104 --direction 180
 
