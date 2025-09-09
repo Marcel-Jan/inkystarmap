@@ -17,5 +17,6 @@ Attach the Raspberry Pi to the GPIO port
 
 Example:
 To have a map of the southern night sky from Gouda, the Netherlands, you can run this:  
+
     python3 gradientmap_inky.py --lat -52.0141616 --lon -4.7158104 --direction 180
 
