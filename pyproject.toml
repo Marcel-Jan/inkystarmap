@@ -1,17 +1,13 @@
-[tool.poetry]
+[project]
 name = "inkystarmap"
-version = "0.1.0"
+version = "0.2.0"
 description = "Makes a map of the night sky on an Inky Impressions e-ink display"
-authors = ["Marcel-Jan Krijgsman <github@marcel-jan.eu>"]
+authors = [
+    {name = "Marcel-Jan Krijgsman", email = "github@marcel-jan.eu"},
+]
 readme = "README.md"
-packages = [{include = "inkystarmap", from = "src"}]
-
-[tool.poetry.dependencies]
-python = "^3.11"
-starplot = "^0.12.2"
-pytz = "^2024.2"
-
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires-python = ">=3.13"
+dependencies = [
+    "pytz>=2025.2",
+    "starplot>=0.16.1",
+]

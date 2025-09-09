@@ -39,7 +39,16 @@ def resize_and_crop_image(image_name, resize_width, resize_height, crop_width, c
     """
     img = Image.open(image_name)
     img = img.resize((resize_width, resize_height))
-    img_cropped_area = (0, 0, crop_width, crop_height)
+    # img_cropped_area = (0, 0, crop_width, crop_height)
+
+
+    # make the cropped area in the middle of the image sized crop_width x crop_height
+    img_cropped_area = (int((resize_width - crop_width) / 2),
+                        int((resize_height - crop_height) / 2),
+                        int((resize_width + crop_width) / 2),
+                        int((resize_height + crop_height) / 2))
+    print("Cropped area:", img_cropped_area)
+
     img = img.crop(img_cropped_area)
     return img
 
