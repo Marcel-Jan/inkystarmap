@@ -10,5 +10,12 @@ Making a map of the night sky on an Inky Impressions e-ink display
 
 ## Hardware
 Attach the Raspberry Pi to the GPIO port
+![Alt text](iinky133_back.jpg?raw=true "Photo of backside of the Inky Impressions 13.3 with Raspberry Pi Zoro 2W attached.")
 
+## Usage
+python3 gradientmap_inky.py --lat <your_latitude> --lon <your_longitude> --direction <direction to look at in degrees>
+
+Example:
+To have a map of the southern night sky from Gouda, the Netherlands, you can run this:
+python3 gradientmap_inky.py --lat -52.0141616 --lon -4.7158104 --direction 180
 
