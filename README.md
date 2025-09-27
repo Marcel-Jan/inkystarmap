@@ -23,15 +23,15 @@ I'm working on a .deb file that does most of the work for you. Until then, here 
 6. Install uv (instructions here: [https://docs.astral.sh/uv/getting-started/installation/]).
 7. Download this repository on your Raspberry Pi (I would do this in the PythonProjects directory).
 
-    git clone https://github.com/Marcel-Jan/inkystarmap.git
+        git clone https://github.com/Marcel-Jan/inkystarmap.git
    
 9. Go in the new inkystarmap directory.
 10. Run uv sync. This will create a virtual environment, install Python 3.13 there and install all necessary Python packages. (If it hangs during installation of the Python packages, check step 4.)
 
-    uv sync
+        uv sync
 11. Activate the virtual environment.
 
-    source .venv/bin/activate
+        source .venv/bin/activate
 12. Run the Python application.
 
 ## Usage
