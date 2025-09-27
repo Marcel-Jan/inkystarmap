@@ -4,13 +4,35 @@ Making a map of the night sky on an Inky Impressions e-ink display
 ![Alt text](inkystarmap2025.jpg?raw=true "Photo of a star map on an Inky Impressions 13.3.")
 
 ## What you need
-- A Raspberry Pi (tested with Zero 2W)
+- A Raspberry Pi (tested with Zero 2WH)
 - An Inky Impression e-ink display from Pimoroni.
 - A micro SD card that's not too slow (I have used a SanDisk 64GB High Endurance MircoSD XC I3 V30.)
+- A power cable
 
 ## Hardware
 Attach the Raspberry Pi to the GPIO port
 ![Alt text](inky133_back.jpg?raw=true "Photo of backside of the Inky Impressions 13.3 with Raspberry Pi Zoro 2W attached.")
+
+## Installation
+I'm working on a .deb file that does most of the work for you. Until then, here are the steps to install and run inkystarmap:
+1. Use Raspberry Pi Imager (available from here [https://www.raspberrypi.com/software/]) to install the OS on a micro SD card. (On a Windows/MacOS/Linux system)
+2. Insert the Micro SD card in your Raspberry Pi.
+3. Log in on your Raspberry Pi with SSH (can be with Putty or iTerm2).
+4. Enlarge the swap space of your Raspberry Pi (these instructions worked for me: [https://pimylifeup.com/raspberry-pi-swap-file/]). (I found that installing the necessary Python packages for inkystarmap, specifically cartopy, will hang if you don't have enough swap space.)
+5. In your $HOME, create a PythonProjects directory (or wherever you want to install inkystarmap).
+6. Install uv (instructions here: [https://docs.astral.sh/uv/getting-started/installation/]).
+7. Download this repository on your Raspberry Pi (I would do this in the PythonProjects directory).
+
+        git clone https://github.com/Marcel-Jan/inkystarmap.git
+   
+9. Go in the new inkystarmap directory.
+10. Run uv sync. This will create a virtual environment, install Python 3.13 there and install all necessary Python packages. (If it hangs during installation of the Python packages, check step 4.)
+
+        uv sync
+11. Activate the virtual environment.
+
+        source .venv/bin/activate
+12. Run the Python application.
 
 ## Usage
     python3 gradientmap_inky.py --lat <your_latitude> --lon <your_longitude> --direction <direction to look at in degrees>

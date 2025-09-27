@@ -116,7 +116,7 @@ def main():
 
     # Resize image to fit Inky display
     logger.info("Resizing image to fit Inky display")
-    resized_image_name = resize_to_inky("horizon_gradientmap.png", 1600, 1200)
+    resized_image_name = resize_to_inky("horizon_gradientmap.png", DISPLAY_WIDTH, DISPLAY_HEIGHT)
 
     # Write resized image to png file
     logger.info("Saving resized image")
