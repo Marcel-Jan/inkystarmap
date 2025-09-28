@@ -21,7 +21,9 @@ Attach the Raspberry Pi to the GPIO port
 
 ### Installation, the easier way
 4. Download inkystarmap_0.3.0.deb
-5. Run the .deb file
+
+       wget https://github.com/Marcel-Jan/inkystarmap/blob/wevegotadebfile/inkystarmap_0.3.0.deb
+6. Run the .deb file
 
         sudo dpkg -i inkystarmap_0.3.0.deb
 7. Run inkystarmap (see Usage below)
