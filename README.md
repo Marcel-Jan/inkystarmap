@@ -20,19 +20,19 @@ Attach the Raspberry Pi to the GPIO port
 3. Log in on your Raspberry Pi with SSH (can be with Putty or iTerm2).
 
 ### Installation, the easier way
-4. Download inkystarmap_0.3.0.deb
+4. Download inkystarmap_0.4.0.deb
 
-       wget https://github.com/Marcel-Jan/inkystarmap/blob/main/inkystarmap_0.3.0.deb
+       wget https://github.com/Marcel-Jan/inkystarmap/blob/main/inkystarmap_0.4.0.deb
 6. Run the .deb file
 
-        sudo dpkg -i inkystarmap_0.3.0.deb
+        sudo dpkg -i inkystarmap_0.4.0.deb
 7. Run inkystarmap (see Usage below)
 
        inkystarmap --lat 52.0141616 --lon 4.7158104 --direction 180
 
 
 ### Installation, the harder way
-4. Enlarge the swap space of your Raspberry Pi (these instructions worked for me: [https://pimylifeup.com/raspberry-pi-swap-file/]). (I found that installing the necessary Python packages for inkystarmap, specifically cartopy, will hang if you don't have enough swap space.)
+4. Enlarge the swap space of your Raspberry Pi (new version creates a 4G swapfile). (I found that installing the necessary Python packages for inkystarmap, specifically cartopy, will hang if you don't have enough swap space.)
 5. In your $HOME, create a PythonProjects directory (or wherever you want to install inkystarmap).
 6. Install uv (instructions here: [https://docs.astral.sh/uv/getting-started/installation/]).
 7. Download this repository on your Raspberry Pi (I would do this in the PythonProjects directory).
