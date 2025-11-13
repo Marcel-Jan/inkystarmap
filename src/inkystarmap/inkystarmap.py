@@ -7,6 +7,7 @@ from starplot import MapPlot, Star, Moon, Observer, HorizonPlot, _
 from starplot.styles import PlotStyle, extensions
 from inky.auto import auto
 from resize_to_inky import resize_to_inky
+from timeandlocation import get_location_from_ip, is_nighttime, get_nighttime_datetime
 
 
 # Inky display
@@ -14,11 +15,6 @@ INKY_DISPLAY = auto()
 INKY_DISPLAY.set_border(INKY_DISPLAY.BLACK)
 DISPLAY_WIDTH = INKY_DISPLAY.WIDTH
 DISPLAY_HEIGHT = INKY_DISPLAY.HEIGHT
-
-
-# Location: Gouda, The Netherlands
-LAT = 52.0141616
-LON = 4.7158104
 
 
 # Configure logging
@@ -37,12 +33,14 @@ logger.addHandler(file_handler)
 
 def main():
     # Get timezone from system.
-    tz = timezone(time.tzname[0])
-    logger.info(f"Timezone from system: {time.tzname[0]}")
+    lat, lon, tz_name = get_location_from_ip()
+    tz = timezone(tz_name)
+    logger.info(f"Determined location from IP: lat={lat}, lon={lon}, timezone={tz_name}")
 
-    # Tonight at 22:00 at current timezone.
-    dt = datetime.now(tz).replace(hour=22, minute=0, second=0, microsecond=0)
-    logger.info(f"Time in timezone: {dt}")
+    # Determine suitable datetime for observation
+    dt = get_nighttime_datetime(lat, lon, tz)
+    logger.info(f"Determined suitable datetime for observation: {dt}")
+    time.sleep(2)  # Pause to ensure logging order
 
     logger.info("Creating style")
     style = PlotStyle().extend(
@@ -53,9 +51,9 @@ def main():
 
     # Argument parser for latitude, longitude and direction
     parser = argparse.ArgumentParser(description="Create a starplot")
-    parser.add_argument("--lat", type=float, default=LAT, help="Latitude")
-    parser.add_argument("--lon", type=float, default=LON, help="Longitude")
-    parser.add_argument("--direction", type=int, default=180, help="Direction")
+    parser.add_argument("--lat", type=float, default=lat, help="Latitude")
+    parser.add_argument("--lon", type=float, default=lon, help="Longitude")
+    parser.add_argument("--direction", type=int, default=180, help="Direction. Default is 180 (South)")
     args = parser.parse_args()
 
     logger.info(f"Location: lat={args.lat}, lon={args.lon}")
@@ -96,8 +94,8 @@ def main():
     logger.info("Adding horizon to plot")
     p.horizon()
 
-    logger.info("Adding ecliptic to plot")
-    p.ecliptic()
+    # logger.info("Adding ecliptic to plot")
+    # p.ecliptic()
 
     logger.info("Adding planets to plot")
     p.planets()

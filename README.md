@@ -58,3 +58,7 @@ To have a map of the southern night sky from Gouda, the Netherlands, you can run
 
     python3 inkystarmap.py --lat 52.0141616 --lon 4.7158104 --direction 180
 
+If you don't enter the latitude and longitude, an attempt is made to get your location via IP.
+
+## Scheduling
+There now is an inkystarmap service and a timer that will run the Python code every hour (with default lat/lon and direction 180). Based on your location it will determine if the sun is up or down. If the sun is down, the starmap will be refreshed.
