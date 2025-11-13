@@ -1,6 +1,6 @@
 [project]
 name = "inkystarmap"
-version = "0.4.0"
+version = "0.5.0"
 description = "Makes a map of the night sky on an Inky Impressions e-ink display"
 authors = [
     {name = "Marcel-Jan Krijgsman", email = "github@marcel-jan.eu"},
@@ -11,5 +11,5 @@ dependencies = [
     "inky[rpi]==2.2.1",
     "pyarrow>=20,<21",
     "pytz>=2025.2",
-    "starplot>=0.16.1",
+    "starplot>=0.17.1",
 ]
