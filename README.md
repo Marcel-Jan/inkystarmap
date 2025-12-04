@@ -5,7 +5,7 @@ Making a map of the night sky on an Inky Impressions e-ink display
 
 ## What you need
 - A Raspberry Pi (tested with Zero 2WH)
-- An Inky Impression e-ink display from Pimoroni.
+- An Inky Impression e-ink display from Pimoroni [https://shop.pimoroni.com/products/inky-impression-7-3?variant=55186435277179].
 - A micro SD card that's not too slow (I have used a SanDisk 64GB High Endurance MircoSD XC I3 V30.)
 - A power cable
 
